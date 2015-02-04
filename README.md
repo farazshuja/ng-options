@@ -32,3 +32,18 @@ $scope.arrayObject = [{'id': 123, 'name': 'name123'},{'id': 456, 'name': 'name45
 </select>
  ```
 *Note: As value of options are being generated based on index, so to save the the correct value use a hidden field*
+
+## Object {'id': 123, 'name': 'myName'}
+###Code
+```
+$scope.object = {'id': 123, 'name': 'name123', 'address': 'home'};
+<select ng-model="selectModel" ng-options="key as value for (key,value) in object" ng-init="selectModel='id'"></select>
+```
+###Generated Output:
+```
+<select name="reseult" ng-model="selectModel" ng-options="key as value for (key,value) in object" ng-init="selectModel='id'" class="ng-pristine ng-valid">
+    <option value="address">home</option>
+    <option value="id" selected="selected">123</option>
+    <option value="name">name123</option>
+</select>
+```
